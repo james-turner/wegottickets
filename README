@@ -1,0 +1,7 @@
+
+1. Requirements
+ - PHPUnit is installed locally and executable via the cmd line by the current user.
+ - An internet connection is present for running the integration tests
+
+2. Assumptions
+ - Matching is a more of an art and will not yield great results 100% of the time.

@@ -1,0 +1,342 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15" />
+<title>WeGotTickets - Your Online Box Office - 99 CLUB LEICESTER SQUARE COMEDY</title>
+<meta name="Description" content="Buy tickets for music, comedy, theatre, film, festivals and much more - with the best service in UK ticketing" />
+
+<!--link rel="stylesheet" type="text/css" href="/css/b/wegottickets.css" / -->
+<link rel="stylesheet" type="text/css" href="/css/b/framework.css" />
+<link rel="stylesheet" type="text/css" href="/css/b/Header.css" />
+<link rel="stylesheet" type="text/css" href="/css/b/Footer.css" />
+
+
+<link rel="stylesheet" type="text/css" href="/css/b/Navigation.css" />
+<link rel="stylesheet" type="text/css" href="/css/b/Content.css" />
+
+<link rel="stylesheet" type="text/css" href="/css/b/Page.css" />
+<link rel="stylesheet" type="text/css" href="/css/b/Listings.css" />
+<link rel="stylesheet" type="text/css" href="/css/b/RightColumn.css" />
+<link rel="stylesheet" type="text/css" href="/css/b/Forms.css" />
+<link rel="stylesheet" type="text/css" href="/css/b/phase1.css" />
+<link rel="stylesheet" type="text/css" href="/css/b/calendar.css" />
+<link rel="stylesheet" type="text/css" href="/css/b/datepicker.css" />
+
+
+<link rel="stylesheet" type="text/css" href="/css/b/clientadminsignpost.css" />
+<link rel="stylesheet" type="text/css" href="/css/incident.css" />
+<link rel="stylesheet" type="text/css" href="/css/birthdaybasket.css" />
+
+<link rel="stylesheet" type="text/css" href="/css/header.css" />
+<link rel="stylesheet" type="text/css" href="/css/b/YouthMusic1.css" />
+
+<!-- REMOVE THIS (and the font file) AFTER DECEMBER 25th -->
+<link rel="stylesheet" type="text/css" href="/css/adventcalendar.css" />
+
+<style type="text/css">
+
+	#logo{
+	    display: block;
+	    width: 0;
+	    height: 0;
+	    overflow: hidden
+	}
+
+</style>
+
+<!--[if IE]>
+<link rel="stylesheet" type="text/css" href="/css/b/ielt8fix.css" />
+<![endif]-->
+
+<!--[if IE 6]>
+<link rel="stylesheet" type="text/css" href="/css/b/ie6fix.css" />
+<![endif]-->
+
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="/css/b/ie7fix.css" />
+<![endif]-->
+
+
+<link rel="shortcut icon" href="http://www.wegottickets.com/images/wegottickets.ico" type="image/x-icon" />
+
+<script type="text/javascript" src="http://www.wegottickets.com/js/jquery.min.js"></script>
+
+<script type="text/javascript">
+jQuery.noConflict();
+
+jQuery(function($){
+
+	var Snowy = function(el, options) {
+		this.el = el;
+		this.init(options);
+	};
+
+	Snowy.fn = Snowy.prototype;
+	$.extend(Snowy.fn, {
+		defaults: {
+			revealSpeed: 400,
+			concealSpeed: 400
+		},
+
+		init: function(options) {
+			this.options = $.extend({}, this.defaults, options)
+			this.overlay = this.el.find('.snow:first').show();
+			this.overlayTop = this.overlay.css('top');
+			this.state = 'concealed';
+			this.el.bind('mouseenter', $.proxy(this.reveal, this));
+			this.el.bind('mouseleave', $.proxy(this.conceal, this));
+		},
+
+		reveal: function(e) {
+			if(this.state == 'concealed') {
+				this.state = 'revealing';
+				this.overlay.animate({
+					opacity: 0,
+					top: '+=80'
+				},this.options.revealSpeed,'linear', $.proxy(this.revealFinish, this));
+			}
+		},
+
+		revealFinish: function() {
+			this.state = 'revealed';
+		},
+
+		conceal: function(e) {
+			if(this.state == 'revealed') {
+				this.state = 'concealing';
+				this.overlay.css({top:this.overlayTop});
+				this.overlay.animate({
+					opacity: 1
+				},this.options.concealSpeed,'linear', $.proxy(this.concealFinish, this));
+			}
+		},
+
+		concealFinish: function() {
+			this.state = 'concealed'
+		}
+	});
+
+	new Snowy($('#advent-calendar .sign').first());
+
+});
+</script>
+
+<script src="http://www.wegottickets.com/js/activeContent.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://www.wegottickets.com/js/utilities.js"></script>
+<script type="text/javascript">
+domReady( function() {
+	 var starLinks = $$('star-compliance');
+	 for( var i = 0, l = starLinks.length; i < l; i++ ) {
+		 addEvent( starLinks[i], 'click', function( e ) {
+			 e.preventDefault();
+			 window.open(
+			     "http://www.star.org.uk/verify?dn=http://www.wegottickets.com",
+			     'star-compliance-window',
+			     "toolbar=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no,width=560,height=490"
+			 );
+		 });
+	 }
+
+});
+</script>
+
+
+</head>
+<body>
+<a href="http://www.wegottickets.com/" id="logo" title="Main WeGotTickets Site">
+	<img src="http://www.wegottickets.com/images/logo.gif" alt="WeGotTickets Logo"/>
+
+</a>
+	<div id="Wrapper">
+        <div id="Header">
+
+        	<div class="sitewidth clearfix">
+	            <a href="http://www.wegottickets.com/" id="WeGotTickets-Logo" title="Main WeGotTickets Site">
+	            	<img src="http://www.wegottickets.com/skins/birthday/images/logo3.png"/>
+	            </a>
+	            <div id="header_extra"></div>
+	            <h1>Your online box office</h1>
+
+	            <div id="header_search">
+		        	<form method="post" action="http://www.wegottickets.com/searchresults">
+		        		<div>Search</div>
+		        		<input name="unified_query" id="unified_query_header" type="text" autocomplete="off" />
+		        		<input type="submit" value="Go" id="unified_query_button_header" />
+		        		<!--div id="sa_suggest_container_header">
+				           <iframe id="sa_suggest_mask_header"></iframe>
+				           <div id="sa_suggest_header">suggestions</div>
+				       </div-->
+		        	</form>
+		        </div>
+
+	            <div id="Navigation">
+					<ul id="MainNav">
+						<li><a id="SearchLink" href="http://www.wegottickets.com/" title="WeGotTickets Home">home</a></li>
+						<li><a id="Basket" href="http://www.wegottickets.com/viewcart" title="Basket">basket</a></li>
+						<li><a href="http://www.wegottickets.com/faqs" title="Frequently Asked Questions">faqs</a></li>
+						<li><a href="http://www.wegottickets.com/help" title="Get Help">help!</a></li>
+					</ul>
+
+					<ul id="UserNav">
+						<li id="UserEdge"></li>
+						<li><h3><a id="Register" href="http://www.wegottickets.com/proceed" title="register">register</a></h3></li>
+<li><h3><a id="LoginLink" href="http://www.wegottickets.com/account" title="login">login</a></h3></li>
+					</ul>
+				</div>
+
+				<!--  div id="portals">
+					<ul>
+						<li><a href="http://www.wegotcomedy.com/" />WeGot<span class="alt">Comedy</span></a></li>
+						<li class="last"><a href="http://www.wegotfestivals.com/" />WeGot<span class="alt">Festivals</span></a></li>
+					</ul>
+				</div> -->
+            </div>
+
+            <div id="header_shadow"></div>
+        </div>
+		<div id="WrapperInner">
+			<div id="extra_content"></div>
+			<div id="Page" class="clearfix">
+
+				<div id="advent-calendar">
+	<div class="arrow">&nbsp;</div>
+	<div class="sign">
+		<div class="container">
+
+			<a href="http://www.actionaid.org.uk/index.asp?page_id=100386" title="Run for ActionAid" target="_blank">Click here</a>
+		</div>
+		<div class="snow">
+			<div class="date">20th</div>
+		</div>
+	</div>
+	<div class="action-aid">&nbsp;</div>
+	<div class="summary">
+
+		<p>
+			This Christmas we're proud to be supporting ActionAid - raising money
+			for their Musiq Speak Programme in Nairobi, Kenya.
+			<a href="http://www.actionaid.org.uk/101322/video_huw_stephens_in_kenya.html?article=3357" target="_blank">more info</a>
+		</p>
+		<p>
+			Check out other great things ActionAid gets up to
+		</p>
+	</div>
+
+</div><h1>99 CLUB LEICESTER SQUARE COMEDY</h1>
+
+<div id="RightColumn">
+
+	<div class="ChatterBox">
+	<div class="chatterboxtop"></div>
+	<blockquote>Use the buttons to add items to your basket, then click "PROCEED" to continue to the next page.</blockquote>
+	<div class="ChatterBottom"></div>
+</div>
+<div class="ChatterBox">
+	<div class="chatterboxtop"></div>
+	<blockquote>We do not post out tickets. <a href="http://www.wegottickets.com/faqs">See faqs</a> for more info.</blockquote>
+
+	<div class="ChatterBottom"></div>
+</div>
+
+</div>
+<div id="Content" class="clearfix">
+	<div class="ListingOuter">
+		<div class="FestivalDetails clearfix">
+			<blockquote>
+				<span class="venue-logo"><span></span><img src="http://www.wegottickets.com/images/logos/white/8458.jpg" alt="99 CLUB LEICESTER SQUARE COMEDY" /></span>
+				<p>London 99 Club @ Storm Nightclub</p>
+
+				<p><em>Tue 20th Dec, 2011</em></p>
+				<p><a href="http://www.99clubcomedy.com" target="_blank" class="festweb">www.99clubcomedy.com</a></p>
+			</blockquote>
+			<div class="ListingBottom"></div>
+		</div>
+
+<div class="FestivalDetails clearfix">
+	<blockquote class="TopText">The 99 Club is the Critics' choice for comedy. It's not hard to see why - they consistently deliver the best live comedians around, performing at a friendly and well-run club.<br /><br />That's why the 99 Club has repeatedly been Critic's Choice in Timeout and garnered a total of over 100 Timeout recommended stars. And that's why the club has repeatedly been Critic's Pick or Choice or "Must See" event in The Evening Standard, The Metro, The London Lite and even the Daily Mirror! <br /><br />The club's policy of always booking the finest acts on the "comedy circuit" has meant that the major names who've played there over the years range from the likes of Frank Skinner and Lee Mack to a younger generation of stars like Jimmy Carr and Russell Brand. Who knows which of their current acts will be household names in years to come - but one thing you can know for certain is that an evening at the 99 club is an evening of assured, critically acclaimed comedy.<br />Our flagship venue, Storm Nightclub is located directly on Leicester Square. There are seated and standing tickets available. The club does not admit stag nights or under 18s. No refunds. For bookings of 10 or more customers the club will ask you to sign a "behaviour-bond" & give a £40.00 refundable deposit.</blockquote>
+
+	<div class="ListingBottom"></div>
+</div>
+
+	</div>
+
+
+
+<div class="ListingOuter">
+<div class="ListingWhite clearfix">
+	<div class="ListingTitle"><strong>99 CLUB LEICESTER SQUARE - COMEDY & BUFFET & NIGHTCLUB ENTRY</strong><a name="rtn_134485" class="festivalanchor"> </a>- &pound;30.00</div>
+
+  <div class="TicketButtons">
+<span class="Alert">NOT CURRENTLY AVAILABLE</span>
+&nbsp;</div>
+<div class="ListingBottom"></div>
+</div></div>
+
+<div class="ListingOuter">
+<div class="ListingWhite clearfix">
+	<div class="ListingTitle"><strong>99 CLUB LEICESTER SQUARE - COMEDY & NIGHTCLUB ENTRY</strong><a name="rtn_134486" class="festivalanchor"> </a>- &pound;20.00</div>
+
+  <div class="TicketButtons">
+<form method="post" action="http://www.wegottickets.com/action" class="fform">
+<input type="Hidden" name="type" value="upd"><input type="Hidden" name="page" value="1"><input type="Hidden" name="fest" value="2961"><input type="Hidden" name="gig" value="134486"><input type="Hidden" name="action" value="festpage"><input type="Hidden" name="qty" value="1"><input type="Hidden" name="from" value=""><input type="Hidden" name="day" value=""><input type="Image" src="http://www.wegottickets.com/images/buy_white.gif" name="buy">
+</form>
+&nbsp;</div>
+<div class="ListingBottom"></div>
+</div></div>
+
+<div class="ListingOuter">
+<div class="ListingWhite clearfix">
+	<div class="ListingTitle"><strong>99 CLUB LEICESTER SQUARE - STANDING TICKET</strong><a name="rtn_139629" class="festivalanchor"> </a>- &pound;10.00</div>
+
+  <div class="TicketButtons">
+<form method="post" action="http://www.wegottickets.com/action" class="fform">
+<input type="Hidden" name="type" value="upd"><input type="Hidden" name="page" value="1"><input type="Hidden" name="fest" value="2961"><input type="Hidden" name="gig" value="139629"><input type="Hidden" name="action" value="festpage"><input type="Hidden" name="qty" value="1"><input type="Hidden" name="from" value=""><input type="Hidden" name="day" value=""><input type="Image" src="http://www.wegottickets.com/images/buy_white.gif" name="buy">
+</form>
+&nbsp;</div>
+<div class="ListingBottom"></div>
+</div></div>
+
+<div class="Proceed" style="float:left; clear:left; width:100%;">
+<form method="post" action="http://www.wegottickets.com/festact">
+<input type="hidden" name="fest" value="2961">
+<input type="hidden" name="page" value="1">
+<input type="image" src="http://www.wegottickets.com/images/proceed.gif" border="0" alt="Proceed" />&nbsp;</form></div>
+<div id="seatingPlan"><div>
+
+</div></div>
+
+
+</div>
+
+
+            </div>
+	    </div>
+	</div>
+    <div id="Footer" class="clearfix">
+	    <div class="sitewidth clearfix">
+	        <a href="/back" title="back to WeGotTickets" id="backlinkfooter">
+	            <img src="http://www.wegottickets.com/images/logo_small.gif" alt="WeGotTickets - Festival tickets" border="0" height="35"/>
+
+	        </a>
+	        <p>&copy; Internet Tickets Ltd 2004 - 2011</p>
+	        <ul class="clearfix">
+	            <li>
+	            	<a href="http://www.facebook.com/#!/pages/WeGotTickets/40707078898" target="_blank">
+	            		<img style="margin-top: 5px;" src="http://www.wegottickets.com/images/facebook.png" title="find us on Facebook" />
+	            	</a>
+	            	<a href="http://twitter.com/WeGotTickets" target="_blank">
+
+	            		<img style="margin-top: 5px;" src="http://www.wegottickets.com/images/twitter.png" title="find us on Twitter" />
+	            	</a>
+	            </li>
+	            <li><a href="http://www.wegottickets.com/about">about us</a></li>
+	            <li><a href="https://clients.wegottickets.com">sell tickets through us</a></li>
+	            <li><a href="http://www.wegottickets.com/tandc">terms and conditions</a></li>
+	            <li><a href="http://www.wegottickets.com/ppl">privacy policy</a></li>
+
+	        </ul>
+	    </div>
+    </div>
+</body>
+</html>
