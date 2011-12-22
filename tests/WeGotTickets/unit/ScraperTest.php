@@ -24,9 +24,19 @@ class ScraperTest extends \PHPUnit_Framework_TestCase {
     /**
      * @test
      */
-    public function scrapeReturnsAJsonStringWhenProvidedWithAPageToScrape(){
+    public function scrapeIndexesReturnsAnArray(){
 
-        $result = $this->scraper->scrape($this->fixture);
+        $this->assertThat($this->scraper->scrapeIndices($this->fixture), $this->isType('array'));
+
+    }
+
+
+    /**
+     * @test
+     */
+    public function scrapeListingsReturnsAJsonStringWhenProvidedWithAPageToScrape(){
+
+        $result = $this->scraper->scrapeListings($this->fixture);
 
         // json results return false if unparseable, so test to make sure it's not false.
         $this->assertNotEquals(false, json_decode($result));
@@ -36,34 +46,50 @@ class ScraperTest extends \PHPUnit_Framework_TestCase {
     /**
      * @test
      */
-    public function scrapeReturnsAJsonObjectThatContainsTheCorrectKeys(){
+    public function scrapeListingsReturnsAJsonObjectThatContainsTheCorrectNumberOfListings(){
 
-        $json = $this->scraper->scrape($this->fixture);
+        $json = $this->scraper->scrapeListings($this->fixture);
 
-        $result = json_decode($json, true);
+        $listings = json_decode($json, true);
+
+        $this->assertEquals(10, count($listings));
+    }
+
+    /**
+     * @test
+     */
+    public function scrapeListingsReturnsJsonObjectsThatContainTheCorrectKeys(){
+
+        $json = $this->scraper->scrapeListings($this->fixture);
+
+        $listings = json_decode($json, true);
 
         // we're expecting a few keys
-        foreach(array('artist', 'city', 'venue', 'date', 'price') as $expectedKey){
-
-            $this->assertArrayHasKey($expectedKey, $result);
+        foreach($listings as $listing){
+            foreach(array('artist', 'city', 'venue', 'date', 'price') as $expectedKey){
+                $this->assertArrayHasKey($expectedKey, $listing);
+            }
         }
     }
 
     /**
      * @test
      */
-    public function scrapeReturnsAJsonObjectThatContainsTheCorrectValues(){
+    public function scrapeListingsReturnsAJsonObjectThatContainsTheCorrectValues(){
 
-        $json = $this->scraper->scrape($this->fixture);
+        $json = $this->scraper->scrapeListings($this->fixture);
 
-        $result = json_decode($json, true);
+        $listings = json_decode($json, true);
+
+        $sample = $listings[0];
+
 
         // we're expecting a few keys
-        $this->assertEquals('99 CLUB LEICESTER SQUARE COMEDY', $result['artist']);
-        $this->assertEquals('', $result['city']);
-        $this->assertEquals('London 99 Club @ Storm Nightclub', $result['venue']);
-        $this->assertEquals('Tue 20th Dec, 2011', $result['date']);
-        $this->assertEquals('', $result['price']);
+        $this->assertEquals('99 CLUB LEICESTER SQUARE COMEDY', $sample['artist']);
+        $this->assertEquals('', $sample['city']); // some fields are indeterminate!
+        $this->assertEquals('London 99 Club @ Storm Nightclub', $sample['venue']);
+        $this->assertEquals('Tue 20th Dec, 2011', $sample['date']);
+        $this->assertEquals('', $sample['price']); // some fields are indeterminate!
 
     }
 

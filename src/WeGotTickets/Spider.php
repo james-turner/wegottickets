@@ -15,10 +15,10 @@ class Spider {
 
     public function crawl($uri){
 
+        $this->client->setUri($uri);
         $response = $this->client->request();
         return $response->getBody();
 
     }
-
 
 }

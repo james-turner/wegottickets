@@ -5,3 +5,13 @@
 
 2. Assumptions
  - Matching is a more of an art and will not yield great results 100% of the time.
+ - WeGotTickets.com render valid XHTML!
+ - WeGotTickets.com are nice enough to let us spam their service
+
+3. Dependencies
+ - Comes packaged with the Zend_Http_Client, as there's no point in re-inventing the wheel.
+
+4. Catches
+ - As the site changes relatively freqently and there is a possibility that a listing
+   might move between 2 search results pages (i.e. appear like a duplication) a decision
+   was made to pull all the listing pages simultaneously using multi curl handling.
