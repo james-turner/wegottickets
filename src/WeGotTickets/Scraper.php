@@ -16,11 +16,21 @@ class Scraper {
 
         $simpledoc = simplexml_import_dom($doc);
 
+        $pagination = $simpledoc->xpath('//a[@class="pagination_link"][last()]'); // fetches the last (2) pagination links from the page.
+        $pagination = $pagination[0];
+        $href = $pagination['href'];
+        $last = (string)$pagination;
+
 //        foreach($simpledoc->xpath('') as $index){
 //
 //        }
+        $template = str_replace($last, '{page}', $href);
+        $indices = array();
+        for($i=0; $i<(int)$last; $i++){
+            $indices[] = strtr($template, '{page}', $i);
+        }
 
-        return array();
+        return $indices;
     }
 
     /**
