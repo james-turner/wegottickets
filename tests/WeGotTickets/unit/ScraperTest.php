@@ -2,10 +2,10 @@
 
 use WeGotTickets\Scraper;
 
-class ScraperTest extends PHPUnit_Framework_TestCase {
+class ScraperTest extends \PHPUnit_Framework_TestCase {
 
     /**
-     * @var WeGetTickets\Scraper
+     * @var WeGotTickets\Scraper
      */
     private $scraper;
 
@@ -63,7 +63,7 @@ class ScraperTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals('', $result['city']);
         $this->assertEquals('London 99 Club @ Storm Nightclub', $result['venue']);
         $this->assertEquals('Tue 20th Dec, 2011', $result['date']);
-//        $this->assertEquals('99 CLUB LEICESTER SQUARE COMEDY', $result['price']);
+        $this->assertEquals('', $result['price']);
 
     }
 

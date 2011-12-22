@@ -15,6 +15,9 @@ class Spider {
 
     public function crawl($uri){
 
+        $response = $this->client->request();
+        return $response->getBody();
+
     }
 
 

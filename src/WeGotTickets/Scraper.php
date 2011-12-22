@@ -4,16 +4,15 @@ namespace WeGotTickets;
 
 class Scraper {
 
-    private $listingClass = 'ListingWhite';
-    private $listingPrices = 'ListingPrices';
-    private $listingAct = 'ListingAct';
-
-
     public function __construct(){
         // Use internal errors.
         libxml_use_internal_errors(true);
     }
 
+    /**
+     * @param $html
+     * @return string JSON string containing an array of the event listings.
+     */
     public function scrape($html){
 
         $doc = new \DOMDocument();
@@ -44,6 +43,7 @@ class Scraper {
 
             if($price = $listing->xpath('.//*[@class="searchResultsPrice"]/strong')){
                 $price = (string)$price[0];
+                var_dump($price);
             }
 
             break;
