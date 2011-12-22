@@ -26,8 +26,8 @@ class Scraper {
 //        }
         $template = str_replace($last, '{page}', $href);
         $indices = array();
-        for($i=0; $i<(int)$last; $i++){
-            $indices[] = strtr($template, '{page}', $i);
+        for($i=1; $i<(int)$last; $i++){
+            $indices[] = strtr($template, array('{page}'=> $i));
         }
 
         return $indices;
