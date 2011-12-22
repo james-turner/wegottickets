@@ -16,7 +16,7 @@ class App {
             $uri = $argv[0];
         }
 
-        $spider = new \WeGotTickets\Spider(new \Zend_Http_Client());
+        $spider = new \WeGotTickets\Crawler\ZendHttpClientAdapter(new \Zend_Http_Client());
         $html = $spider->crawl($uri);
 
         $scraper = new \WeGotTickets\Scraper();

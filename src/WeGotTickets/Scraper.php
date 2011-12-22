@@ -21,12 +21,9 @@ class Scraper {
         $href = $pagination['href'];
         $last = (string)$pagination;
 
-//        foreach($simpledoc->xpath('') as $index){
-//
-//        }
         $template = str_replace($last, '{page}', $href);
         $indices = array();
-        for($i=1; $i<(int)$last; $i++){
+        for($i=1; $i<=(int)$last; $i++){
             $indices[] = strtr($template, array('{page}'=> $i));
         }
 

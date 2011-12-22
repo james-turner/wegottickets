@@ -1,8 +1,10 @@
 <?php
 
-namespace WeGotTickets;
+namespace WeGotTickets\Crawler;
 
-class Spider {
+use WeGotTickets\Crawler\Crawler;
+
+class ZendHttpClientAdapter implements Crawler {
 
     /**
      * @var Zend_Http_Client

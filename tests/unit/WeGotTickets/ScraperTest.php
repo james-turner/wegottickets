@@ -24,9 +24,23 @@ class ScraperTest extends \PHPUnit_Framework_TestCase {
     /**
      * @test
      */
-    public function scrapeIndexesReturnsAnArray(){
+    public function scrapeIndicesReturnsAnArray(){
 
         $this->assertThat($this->scraper->scrapeIndices($this->fixture), $this->isType('array'));
+
+    }
+
+    /**
+     * @test
+     */
+    public function scrapeIndicesGivesBackAllThePageUrls(){
+
+        // based on fixture
+        $expect = 530;
+
+        $indices = $this->scraper->scrapeIndices($this->fixture);
+
+        $this->assertEquals($expect, count($indices));
 
     }
 
