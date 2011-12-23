@@ -1,13 +1,13 @@
 <?php
 
-use WeGotTickets\Scraper;
+use WeGotTickets\Parser;
 
-class ScraperTest extends \PHPUnit_Framework_TestCase {
+class parserTest extends \PHPUnit_Framework_TestCase {
 
     /**
-     * @var WeGotTickets\Scraper
+     * @var WeGotTickets\parser
      */
-    private $scraper;
+    private $parser;
 
     /**
      * HTML fixture
@@ -17,28 +17,28 @@ class ScraperTest extends \PHPUnit_Framework_TestCase {
 
     public function setUp(){
 
-        $this->scraper = new Scraper(new \WeGotTickets\Formatter\JSONFormatter());
+        $this->parser = new Parser();
         $this->fixture = FixtureLoader::load('listings');
     }
 
     /**
      * @test
      */
-    public function scrapeIndicesReturnsAnArray(){
+    public function parseIndicesReturnsAnArray(){
 
-        $this->assertThat($this->scraper->scrapeIndices($this->fixture), $this->isType('array'));
+        $this->assertThat($this->parser->parseIndices($this->fixture), $this->isType('array'));
 
     }
 
     /**
      * @test
      */
-    public function scrapeIndicesGivesBackAllThePageUrls(){
+    public function parseIndicesGivesBackAllThePageUrls(){
 
         // based on fixture
         $expect = 530;
 
-        $indices = $this->scraper->scrapeIndices($this->fixture);
+        $indices = $this->parser->parseIndices($this->fixture);
 
         $this->assertEquals($expect, count($indices));
 
@@ -48,23 +48,21 @@ class ScraperTest extends \PHPUnit_Framework_TestCase {
     /**
      * @test
      */
-    public function scrapeListingsReturnsAJsonStringWhenProvidedWithAPageToScrape(){
+    public function parseListingsReturnsAnArrayProvidedWithAPageToparse(){
 
-        $result = $this->scraper->scrapeListings($this->fixture);
+        $listings = $this->parser->parseListings($this->fixture);
 
         // json results return false if unparseable, so test to make sure it's not false.
-        $this->assertNotEquals(false, json_decode($result));
+        $this->assertThat($listings, $this->isType('array'));
 
     }
 
     /**
      * @test
      */
-    public function scrapeListingsReturnsAJsonObjectThatContainsTheCorrectNumberOfListings(){
+    public function parseListingsReturnsAnArrayThatContainsTheCorrectNumberOfListings(){
 
-        $json = $this->scraper->scrapeListings($this->fixture);
-
-        $listings = json_decode($json, true);
+        $listings = $this->parser->parseListings($this->fixture);
 
         $this->assertEquals(10, count($listings));
     }
@@ -72,11 +70,9 @@ class ScraperTest extends \PHPUnit_Framework_TestCase {
     /**
      * @test
      */
-    public function scrapeListingsReturnsJsonObjectsThatContainTheCorrectKeys(){
+    public function parseListingsReturnsArraysThatContainTheCorrectKeys(){
 
-        $json = $this->scraper->scrapeListings($this->fixture);
-
-        $listings = json_decode($json, true);
+        $listings = $this->parser->parseListings($this->fixture);
 
         // we're expecting a few keys
         foreach($listings as $listing){
@@ -89,11 +85,9 @@ class ScraperTest extends \PHPUnit_Framework_TestCase {
     /**
      * @test
      */
-    public function scrapeListingsReturnsAJsonObjectThatContainsTheCorrectValues(){
+    public function parseListingsReturnsAnArrayThatContainsTheCorrectValues(){
 
-        $json = $this->scraper->scrapeListings($this->fixture);
-
-        $listings = json_decode($json, true);
+        $listings = $this->parser->parseListings($this->fixture);
 
         $sample = $listings[0];
 

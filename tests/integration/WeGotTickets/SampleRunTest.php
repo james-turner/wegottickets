@@ -3,13 +3,10 @@
 use WeGotTickets\Scraper;
 use WeGotTickets\Crawler\ZendHttpClientAdapter;
 use WeGotTickets\Formatter\JSONFormatter;
+use WeGotTickets\Parser;
+use WeGotTickets\Writer\Stdout;
 
 class SampleRunTest extends PHPUnit_Framework_TestCase {
-
-    /**
-     * @var \WeGotTickets\Spider
-     */
-    private $spider;
 
     /**
      * @var \WeGotTickets\Scraper
@@ -18,8 +15,8 @@ class SampleRunTest extends PHPUnit_Framework_TestCase {
 
     public function setUp(){
 
-        $this->spider = new ZendHttpClientAdapter(new Zend_Http_Client());
-        $this->scraper = new Scraper(new JSONFormatter());
+        $crawler = new ZendHttpClientAdapter(new \Zend_Http_Client());
+        $this->scraper = new Scraper($crawler, new Parser(), new JSONFormatter(), new Stdout());
 
     }
 
@@ -30,19 +27,12 @@ class SampleRunTest extends PHPUnit_Framework_TestCase {
 
         $start_time = time();
 
-        $start_page = $this->spider->crawl('http://www.wegottickets.com/searchresults/page/1/all');
-
-        $indices = $this->scraper->scrapeIndices($start_page);
-
-        while(null !== ($index = array_shift($indices))){
-            $html = $this->spider->crawl($index);
-            $this->scraper->scrapeListings($html);
-        }
+        $uri = 'http://www.wegottickets.com/searchresults/page/1/all';
+        $this->scraper->scrape($uri);
 
         $end_time = time();
 
-
-        var_dump(($end_time - $start_time)/60);
+        echo "Run took: " .($end_time - $start_time) . " seconds.";
 
     }
 

@@ -2,6 +2,11 @@
 
 namespace WeGotTickets;
 
+use WeGotTickets\Crawler\ZendHttpClientAdapter;
+use WeGotTickets\Formatter\JSONFormatter;
+use WeGotTickets\Writer\Stdout;
+use WeGotTickets\Scraper;
+
 class App {
 
     static public function run($argv){
@@ -16,16 +21,9 @@ class App {
             $uri = $argv[1];
         }
 
-        $spider = new \WeGotTickets\Crawler\ZendHttpClientAdapter(new \Zend_Http_Client());
-        $html = $spider->crawl($uri);
-
-        $scraper = new \WeGotTickets\Scraper(new \WeGotTickets\Formatter\JSONFormatter());
-
-        $writer = new Writer\Stdout();
-
-        $writer->write($scraper->scrapeListings($html));
-
-
+        $crawler = new ZendHttpClientAdapter(new \Zend_Http_Client());
+        $scraper = new Scraper($crawler, new Parser(), new JSONFormatter(), new Stdout());
+        $scraper->scrape($uri, 1);
 
     }
 

@@ -1,3 +1,4 @@
+== README
 
 1. Requirements
  - PHPUnit is installed locally and executable via the cmd line by the current user.
@@ -13,11 +14,19 @@
 
 4. Catches
  - As the site changes relatively freqently and there is a possibility that a listing
-   might move between 2 search results pages (i.e. appear like a duplication) a decision
-   was made to pull all the listing pages simultaneously using multi curl handling.
-
+   might move between 2 search results pages (i.e. appear like a duplication).
+ - All remote URI calls are asynchronous, to alleviate this you might want to look at
+   using CURL multi handler instead of Zend_Http_Client
 
 5. Runner
  - The runner can be invoked from cmd line with the url of the WeGotTickets page that is
    to be scraped.
-   e.g. php bin/Runner.php http://www.wegottickets.com/searchresults/page/5/all
+   e.g. php bin/Runner.php "http://www.wegottickets.com/searchresults/page/5/all"
+
+6. Writers
+ - Currently there is only 1 writer (stdout), however more can be implemented to write
+   to files/caches/streams etc.
+
+7. Things to note
+ - There seemed little point in crawling the individual event page when the information
+   required appeared to be supplied by the listings page.
