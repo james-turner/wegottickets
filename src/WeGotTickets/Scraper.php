@@ -27,6 +27,11 @@ class Scraper {
 
         $indices = $this->parser->parseIndices($html);
 
+        // If a page further along the indices is provided slice the indices to that point.
+        if(false !== $primary_key = array_search($uri, $indices)){
+            $indices = array_slice($indices, $primary_key);
+        }
+
         if(0 === $limit) $limit = count($indices);
 
         $listings = array();
