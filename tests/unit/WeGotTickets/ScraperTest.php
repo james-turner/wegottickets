@@ -17,7 +17,7 @@ class ScraperTest extends \PHPUnit_Framework_TestCase {
 
     public function setUp(){
 
-        $this->scraper = new Scraper();
+        $this->scraper = new Scraper(new \WeGotTickets\Formatter\JSONFormatter());
         $this->fixture = FixtureLoader::load('listings');
     }
 

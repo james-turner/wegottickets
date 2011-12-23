@@ -13,16 +13,19 @@ class App {
             if(false === parse_url($argv[1])){
                 throw new \RuntimeException("Check that the supplied URI via cmd line is a valid URI.");
             }
-            $uri = $argv[0];
+            $uri = $argv[1];
         }
 
         $spider = new \WeGotTickets\Crawler\ZendHttpClientAdapter(new \Zend_Http_Client());
         $html = $spider->crawl($uri);
 
-        $scraper = new \WeGotTickets\Scraper();
+        $scraper = new \WeGotTickets\Scraper(new \WeGotTickets\Formatter\JSONFormatter());
 
-        $json = $scraper->scrapeListings($html);
-        echo $json;
+        $writer = new Writer\Stdout();
+
+        $writer->write($scraper->scrapeListings($html));
+
+
 
     }
 

@@ -2,6 +2,7 @@
 
 use WeGotTickets\Scraper;
 use WeGotTickets\Crawler\ZendHttpClientAdapter;
+use WeGotTickets\Formatter\JSONFormatter;
 
 class SampleRunTest extends PHPUnit_Framework_TestCase {
 
@@ -18,7 +19,7 @@ class SampleRunTest extends PHPUnit_Framework_TestCase {
     public function setUp(){
 
         $this->spider = new ZendHttpClientAdapter(new Zend_Http_Client());
-        $this->scraper = new Scraper();
+        $this->scraper = new Scraper(new JSONFormatter());
 
     }
 
@@ -35,9 +36,7 @@ class SampleRunTest extends PHPUnit_Framework_TestCase {
 
         while(null !== ($index = array_shift($indices))){
             $html = $this->spider->crawl($index);
-            echo "crawled $index\n";
-            $listings = $this->scraper->scrapeListings($html);
-            echo "scraped\n";
+            $this->scraper->scrapeListings($html);
         }
 
         $end_time = time();

@@ -2,10 +2,19 @@
 
 namespace WeGotTickets;
 
+use WeGotTickets\Formatter\Formatter;
+
 class Scraper {
 
-    public function __construct(){
+    /**
+     * @var \WeGotTickets\Formatter\Formatter
+     */
+    private $formatter;
+
+    public function __construct(Formatter $formatter){
         // Use internal errors.
+        $this->formatter = $formatter;
+
         libxml_use_internal_errors(true);
     }
 
@@ -75,7 +84,7 @@ class Scraper {
         }
 
         // Return JSON struct
-        return json_encode($listings);
+        return $this->formatter->format($listings);
     }
 
 }

@@ -15,3 +15,9 @@
  - As the site changes relatively freqently and there is a possibility that a listing
    might move between 2 search results pages (i.e. appear like a duplication) a decision
    was made to pull all the listing pages simultaneously using multi curl handling.
+
+
+5. Runner
+ - The runner can be invoked from cmd line with the url of the WeGotTickets page that is
+   to be scraped.
+   e.g. php bin/Runner.php http://www.wegottickets.com/searchresults/page/5/all
